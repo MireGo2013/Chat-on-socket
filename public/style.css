@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper_line {
+  display: flex;
+  width: 200%;
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #004d7a,
+    #008793,
+    #00bf72,
+    #a8eb12
+  );
+}
+
+.wrapper_authorization {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.header_title {
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  animation: dropTitle 1s ease-in-out forwards;
+  text-shadow: 2px 1px 5px black;
+}
+
+#form_authorization {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  animation: dropForm 1s ease-in-out 1s forwards;
+}
+
+#name_user {
+  font-size: 1.7rem;
+  color: white;
+  width: 250px;
+  height: 35px;
+  background: rgb(0, 201, 183);
+  margin-bottom: 10px;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 1px black;
+  outline-style: none;
+}
+
+#name_user:focus {
+  background: powderblue;
+}
+
+.btn {
+  font-size: 1.3rem;
+  border-radius: 25px;
+  background: rgb(0, 201, 183);
+  color: aliceblue;
+  box-shadow: 0 0 10px 1px black;
+  cursor: pointer;
+}
+
+.btn_enter {
+  width: 140px;
+  height: 37px;
+  border: 1px solid black;
+}
+
+.btn_enter:active {
+  transform: scale(0.99);
+}
+
+.grid_layout {
+  display: none;
+}
+
+.wrapper.open .wrapper_authorization {
+  animation: removeForm 1s ease-in-out forwards;
+}
+.wrapper.open .wrapper_line {
+  animation: removeLine 1s ease-in-out forwards;
+}
+
+.wrapper.open .flex_layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.flex_wrapper {
+  border: 1px solid black;
+  width: 100%;
+  max-width: 550px;
+  min-width: 250px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 10px darkslategrey;
+}
+
+.flex_item_title {
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 2px 1px 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid black;
+  flex: 0.1;
+}
+.flex_item_meslist {
+  flex: 1;
+  overflow: auto;
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: start;
+  word-break: break-all;
+  background-image: url("./assets/fon-1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.flex_item_form {
+  flex: 0.1;
+}
+
+@keyframes dropTitle {
+  0% {
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -100%);
+    font-size: 0.5rem;
+    color: rgba(240, 255, 255, 0.1);
+  }
+  100% {
+    top: 40%;
+    left: 50%;
+    font-size: 2rem;
+    color: rgba(240, 255, 255, 1);
+    transform: translate(-50%, -100%);
+  }
+}
+
+@keyframes dropForm {
+  0% {
+    left: 0%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+  }
+  100% {
+    left: 50%;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 1);
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes removeForm {
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes removeLine {
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+#form {
+  font-family: "Josefin Sans", sans-serif;
+  grid-area: form;
+  width: 100%;
+  display: flex;
+}
+
+#input {
+  flex: 1;
+  font-size: 1.4rem;
+  color: white;
+  background: rgb(0, 201, 183);
+  padding: 3px;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0 0 5px 1px black;
+  outline-style: none;
+}
+
+.btn_send {
+  flex: 0.42;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 5px 1px black;
+}
+
+.btn_send:active {
+  transform: scale(0.99);
+}
+
+.print_msg {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+@media (max-width: 400px) {
+  #input {
+    font-size: 1.1rem;
+  }
+  .btn_send {
+    font-size: 1.2rem;
+  }
+}
+.connect_user_mes {
+  color: greenyellow;
+}
+
+.disconnect_user_mes {
+  color: rgb(170, 14, 14);
+}
