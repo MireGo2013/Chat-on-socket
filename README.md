@@ -3,5 +3,5 @@
 npm install
 npm start
 ```
-- [go to] - <http://localhost:3000>
+- _go to_ - <http://localhost:3000>
 
